@@ -1,374 +1,1064 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raghavendra | Achievements Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap
+  <meta
+    name="description"
+    content="Raghavendra Therupalli's verified achievements and recognition portfolio."
+  >
 
-<style>
+  <meta name="theme-color" content="#090a0f">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+  <title>Raghavendra Therupalli | Achievement Portfolio</title>
 
-body{
-    background:#f7f9fc;
-    color:#333;
-    line-height:1.6;
-}
+  <style>
+    :root {
+      --background: #07080c;
+      --surface: #11131a;
+      --surface-light: #171a23;
+      --text: #f7f4ec;
+      --muted: #b8b4aa;
+      --gold: #f2c14e;
+      --gold-light: #fff0a6;
+      --red: #d22b3f;
+      --border: rgba(255, 255, 255, 0.10);
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.48);
+    }
 
-header{
-    background:linear-gradient(135deg,#2563eb,#1e40af);
-    color:white;
-    padding:80px 20px;
-    text-align:center;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.profile-img{
-    width:150px;
-    height:150px;
-    border-radius:50%;
-    border:5px solid white;
-    object-fit:cover;
-    margin-bottom:20px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-header h1{
-    font-size:2.8rem;
-}
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
 
-header p{
-    font-size:1.1rem;
-    margin-top:10px;
-}
+    a {
+      color: inherit;
+    }
 
-.btn{
-    display:inline-block;
-    background:white;
-    color:#2563eb;
-    padding:12px 24px;
-    margin-top:20px;
-    text-decoration:none;
-    border-radius:30px;
-    font-weight:600;
-}
+    .container {
+      width: min(1120px, calc(100% - 34px));
+      margin: auto;
+    }
 
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:40px 20px;
-}
+    /* Decorative texture */
 
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
-    color:#1e3a8a;
-    font-size:2rem;
-}
+    .noise {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      pointer-events: none;
+      opacity: 0.045;
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
-}
+      background-image: url(
+        "data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.8'/%3E%3C/svg%3E"
+      );
+    }
 
-.card{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
-    transition:.3s;
-}
+    /* Navigation */
 
-.card:hover{
-    transform:translateY(-5px);
-}
+    nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 15;
 
-.card h3{
-    color:#2563eb;
-    margin-bottom:10px;
-}
+      background: rgba(7, 8, 12, 0.68);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
 
-.skills{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    justify-content:center;
-}
+    .navigation {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-.skill{
-    background:#dbeafe;
-    color:#1e3a8a;
-    padding:10px 20px;
-    border-radius:25px;
-    font-weight:500;
-}
+    .brand {
+      color: white;
+      font-size: 0.84rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+    }
 
-.timeline{
-    position:relative;
-    max-width:900px;
-    margin:auto;
-}
+    .brand span {
+      color: var(--gold);
+    }
 
-.timeline-item{
-    background:white;
-    padding:20px;
-    border-left:5px solid #2563eb;
-    margin-bottom:20px;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.08);
-}
+    .navigation-link {
+      padding: 9px 14px;
 
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:15px;
-}
+      color: var(--gold-light);
+      border: 1px solid rgba(242, 193, 78, 0.4);
+      border-radius: 999px;
 
-.gallery img{
-    width:100%;
-    border-radius:12px;
-    height:250px;
-    object-fit:cover;
-}
+      font-size: 0.86rem;
+      font-weight: 750;
+      text-decoration: none;
 
-.contact{
-    text-align:center;
-}
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+    }
 
-.contact a{
-    text-decoration:none;
-    color:#2563eb;
-    font-weight:600;
-    margin:0 15px;
-}
+    .navigation-link:hover {
+      transform: translateY(-2px);
+      background: rgba(242, 193, 78, 0.08);
+    }
 
-footer{
-    background:#111827;
-    color:white;
-    text-align:center;
-    padding:25px;
-    margin-top:50px;
-}
+    /* Hero */
 
-.highlight{
-    color:#2563eb;
-    font-weight:bold;
-}
+    .hero {
+      position: relative;
+      min-height: 100vh;
 
-</style>
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+
+      padding: 112px 0 70px;
+
+      background:
+        radial-gradient(
+          circle at 75% 30%,
+          rgba(210, 43, 63, 0.20),
+          transparent 26rem
+        ),
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(242, 193, 78, 0.14),
+          transparent 28rem
+        ),
+        linear-gradient(
+          135deg,
+          #08090d,
+          #11131a 55%,
+          #08090d
+        );
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .orb-one {
+      width: 340px;
+      height: 340px;
+      top: 14%;
+      right: -90px;
+
+      border: 1px solid rgba(242, 193, 78, 0.22);
+      box-shadow: inset 0 0 80px rgba(242, 193, 78, 0.06);
+    }
+
+    .orb-two {
+      width: 170px;
+      height: 170px;
+      bottom: 8%;
+      left: -60px;
+
+      border: 1px solid rgba(210, 43, 63, 0.3);
+      animation-delay: -3s;
+    }
+
+    @keyframes float {
+      50% {
+        transform: translateY(-22px) rotate(8deg);
+      }
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      padding: 8px 13px;
+
+      color: var(--gold-light);
+      background: rgba(242, 193, 78, 0.07);
+      border: 1px solid rgba(242, 193, 78, 0.35);
+      border-radius: 999px;
+
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+
+      animation: rise 0.8s both;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 18px var(--gold);
+    }
+
+    h1 {
+      margin: 22px 0 20px;
+
+      font-size: clamp(3rem, 8vw, 6.6rem);
+      line-height: 0.93;
+      letter-spacing: -0.065em;
+
+      animation: rise 0.85s 0.08s both;
+    }
+
+    .gradient-text {
+      color: transparent;
+
+      background: linear-gradient(
+        90deg,
+        #ffffff,
+        var(--gold-light),
+        var(--gold)
+      );
+
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero-description {
+      max-width: 680px;
+
+      color: #d2cec4;
+      font-size: clamp(1rem, 2vw, 1.18rem);
+
+      animation: rise 0.85s 0.16s both;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+
+      margin-top: 30px;
+
+      animation: rise 0.85s 0.24s both;
+    }
+
+    .button {
+      min-height: 50px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      padding: 12px 19px;
+
+      border-radius: 12px;
+      font-weight: 850;
+      text-decoration: none;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-primary {
+      color: #1a1405;
+
+      background: linear-gradient(
+        135deg,
+        var(--gold-light),
+        var(--gold)
+      );
+
+      box-shadow: 0 12px 35px rgba(242, 193, 78, 0.2);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Medal */
+
+    .medal {
+      position: relative;
+
+      width: min(370px, 80vw);
+      aspect-ratio: 1;
+      margin: auto;
+
+      display: grid;
+      place-items: center;
+
+      color: #332202;
+
+      background: radial-gradient(
+        circle at 35% 30%,
+        #fff6be,
+        #e3a82c 45%,
+        #87600f 76%
+      );
+
+      border-radius: 50%;
+
+      box-shadow:
+        0 0 0 12px rgba(242, 193, 78, 0.07),
+        0 0 0 25px rgba(242, 193, 78, 0.035),
+        0 35px 80px rgba(0, 0, 0, 0.45);
+
+      animation:
+        medal-entrance 1.1s 0.25s both,
+        medal-glow 3s 1.4s ease-in-out infinite;
+    }
+
+    .medal::before,
+    .medal::after {
+      content: "";
+      position: absolute;
+      inset: 7%;
+
+      border: 2px dashed rgba(73, 46, 0, 0.38);
+      border-radius: 50%;
+    }
+
+    .medal::after {
+      inset: 13%;
+      border-style: solid;
+      border-width: 1px;
+    }
+
+    .medal-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .medal-star {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 2.8rem;
+    }
+
+    .medal-content strong {
+      display: block;
+
+      font-size: clamp(1.25rem, 3vw, 2rem);
+      line-height: 1.05;
+      letter-spacing: 0.08em;
+    }
+
+    .medal-content small {
+      display: block;
+
+      margin-top: 12px;
+
+      font-weight: 900;
+      letter-spacing: 0.16em;
+    }
+
+    @keyframes medal-entrance {
+      from {
+        opacity: 0;
+        transform: scale(0.72) rotate(-18deg);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+      }
+    }
+
+    @keyframes medal-glow {
+      50% {
+        box-shadow:
+          0 0 0 12px rgba(242, 193, 78, 0.11),
+          0 0 0 28px rgba(242, 193, 78, 0.05),
+          0 35px 95px rgba(242, 193, 78, 0.17);
+      }
+    }
+
+    /* Summary */
+
+    .summary {
+      position: relative;
+      z-index: 4;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      margin-top: -35px;
+
+      overflow: hidden;
+
+      background: rgba(17, 19, 26, 0.88);
+      backdrop-filter: blur(16px);
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .summary-item {
+      padding: 24px 26px;
+      border-right: 1px solid var(--border);
+    }
+
+    .summary-item:last-child {
+      border-right: 0;
+    }
+
+    .summary-item strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1.35rem;
+    }
+
+    .summary-item span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Sections */
+
+    section {
+      padding: 105px 0;
+    }
+
+    .section-label {
+      margin: 0 0 8px;
+
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 0 0 38px;
+
+      font-size: clamp(2.1rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    /* Achievement */
+
+    .achievement-layout {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .achievement-story,
+    .certificate-container {
+      overflow: hidden;
+
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.055),
+        rgba(255, 255, 255, 0.025)
+      );
+
+      border: 1px solid var(--border);
+      border-radius: 23px;
+    }
+
+    .achievement-story {
+      padding: clamp(28px, 5vw, 50px);
+    }
+
+    .achievement-badge {
+      display: inline-flex;
+
+      padding: 7px 11px;
+
+      color: #ffb1ba;
+      background: rgba(210, 43, 63, 0.16);
+      border: 1px solid rgba(210, 43, 63, 0.4);
+      border-radius: 999px;
+
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .achievement-story h3 {
+      margin: 20px 0 6px;
+
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.1;
+    }
+
+    .award-date {
+      color: var(--gold);
+      font-weight: 850;
+    }
+
+    .award-description {
+      margin: 28px 0;
+      padding: 22px 0 22px 22px;
+
+      color: #ded9cf;
+      border-left: 3px solid var(--gold);
+
+      font-size: 1.05rem;
+    }
+
+    .issuer {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+
+      margin-top: 25px;
+    }
+
+    .tag {
+      padding: 8px 11px;
+
+      color: #ded9cf;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+
+      font-size: 0.82rem;
+    }
+
+    /* Embedded certificate */
+
+    .certificate-container {
+      position: relative;
+      min-height: 590px;
+      background: #eae5da;
+    }
+
+    .certificate-container object {
+      width: 100%;
+      height: 100%;
+      min-height: 590px;
+
+      display: block;
+      border: 0;
+    }
+
+    .verified-ribbon {
+      position: absolute;
+      top: 18px;
+      right: -43px;
+      z-index: 3;
+
+      width: 180px;
+      padding: 8px;
+
+      color: white;
+      background: var(--red);
+
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-align: center;
+
+      transform: rotate(40deg);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .pdf-fallback {
+      min-height: 590px;
+
+      display: grid;
+      place-items: center;
+
+      padding: 30px;
+
+      color: #181818;
+      text-align: center;
+    }
+
+    /* Timeline */
+
+    .timeline-section {
+      padding-top: 15px;
+    }
+
+    .timeline {
+      position: relative;
+
+      margin-top: 36px;
+      padding-left: 34px;
+    }
+
+    .timeline::before {
+      content: "";
+
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      left: 7px;
+
+      width: 2px;
+
+      background: linear-gradient(
+        var(--gold),
+        rgba(242, 193, 78, 0.08)
+      );
+    }
+
+    .timeline-card {
+      position: relative;
+
+      padding: 24px;
+
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .timeline-card::before {
+      content: "";
+
+      position: absolute;
+      top: 28px;
+      left: -35px;
+
+      width: 14px;
+      height: 14px;
+
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 20px var(--gold);
+    }
+
+    .timeline-year {
+      color: var(--gold);
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+
+    .timeline-card h3 {
+      margin: 3px 0;
+    }
+
+    .timeline-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* Closing section */
+
+    .closing {
+      padding-top: 15px;
+      text-align: center;
+    }
+
+    .closing-box {
+      padding: 55px 25px;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(242, 193, 78, 0.12),
+          transparent 23rem
+        ),
+        var(--surface);
+
+      border: 1px solid rgba(242, 193, 78, 0.22);
+      border-radius: 24px;
+    }
+
+    .closing-box h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 4rem);
+    }
+
+    .closing-box p {
+      max-width: 650px;
+      margin: 0 auto 26px;
+
+      color: var(--muted);
+    }
+
+    /* Footer */
+
+    footer {
+      padding: 30px 0;
+
+      color: #8f8b83;
+      border-top: 1px solid var(--border);
+
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    /* Scroll animations */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+
+      transition:
+        opacity 0.75s ease,
+        transform 0.75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Tablet and mobile */
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .achievement-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero-description {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .actions {
+        justify-content: center;
+      }
+
+      .medal {
+        width: min(290px, 75vw);
+        margin-top: 25px;
+      }
+
+      .summary {
+        grid-template-columns: 1fr;
+        margin-top: -20px;
+      }
+
+      .summary-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .summary-item:last-child {
+        border-bottom: 0;
+      }
+
+      .achievement-layout {
+        gap: 16px;
+      }
+
+      .certificate-container,
+      .certificate-container object,
+      .pdf-fallback {
+        min-height: 445px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .navigation {
+        min-height: 64px;
+      }
+
+      .brand {
+        font-size: 0.72rem;
+      }
+
+      .navigation-link {
+        padding: 8px 10px;
+        font-size: 0.76rem;
+      }
+
+      .hero {
+        padding-top: 105px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+    }
+
+    /* Accessibility */
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
+  <div class="noise"></div>
 
-https://via.placeholder.com/150
+  <nav>
+    <div class="container navigation">
 
-<h1>Raghavendra</h1>
+      #home
+        RAGHAVENDRA<span>.</span>
+      </a>
 
-<p>Analyst | Finance Professional | Achievement Portfolio</p>
+      <a
+        class="navigation-link"
+        href="certificate.pdf"
+        target="_blank"
+        rel="noopener"
+      >
+        View Certificate ↗
+      </a>
 
-#achievements
-View My Achievements
-</a>
+    </div>
+  </nav>
 
-</header>
+  <header class="hero" id="home">
 
-<section class="container">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
 
-<h2 class="section-title">About Me</h2>
+    <div class="container hero-grid">
 
-<div class="card">
+      <div class="hero-content">
 
-<p>
+        <span class="hero-label">
+          <span class="status-dot"></span>
+          Verified Achievement Portfolio
+        </span>
 
-Welcome to my professional achievements portfolio.
+        <h1>
+          Recognizing
+          <br>
+          <span class="gradient-text">
+            Initiative &amp; Impact.
+          </span>
+        </h1>
 
-This site highlights my awards, recognitions, certifications,
-major accomplishments, projects, and career milestones.
+        <p class="hero-description">
+          A focused showcase of professional recognition earned by
+          Raghavendra Therupalli through initiative, commitment,
+          and contribution to the organization and team.
+        </p>
 
-I continuously strive for excellence, learning, leadership, and delivering measurable impact.
+        <div class="actions">
 
-</p>
+          #achievement
+            Explore Achievement ↓
+          </a>
 
-</div>
+          <a
+            class="button button-secondary"
+            href="certificate.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            Open Original PDF ↗
+          </a>
 
-</section>
+        </div>
 
-<section id="achievements" class="container">
+      </div>
 
-<h2 class="section-title">🏆 Awards & Achievements</h2>
+      <div
+        class="medal"
+        aria-label="Going Extra Mile recognition"
+      >
 
-<div class="cards">
+        <div class="medal-content">
 
-<div class="card">
-<h3>Employee Recognition Award</h3>
-<p>
-Recognized for outstanding performance and commitment.
-</p>
-</div>
+          <span class="medal-star">★</span>
 
-<div class="card">
-<h3>Top Performer</h3>
-<p>
-Awarded for exceeding expectations and delivering quality results.
-</p>
-</div>
+          <strong>
+            GOING
+            <br>
+            EXTRA MILE
+          </strong>
 
-<div class="card">
-<h3>Process Improvement Champion</h3>
-<p>
-Successfully drove efficiency initiatives across operations.
-</p>
-</div>
+          <small>2026</small>
 
-</div>
+        </div>
 
-</section>
+      </div>
 
-<section class="container">
+    </div>
 
-<h2 class="section-title">📜 Certifications</h2>
+  </header>
 
-<div class="cards">
+  <main>
 
-<div class="card">
-<h3>Microsoft Certification</h3>
-<p>Certification description here.</p>
-</div>
+    <div class="container summary reveal">
 
-<div class="card">
-<h3>Finance & Accounting</h3>
-<p>Certification description here.</p>
-</div>
+      <div class="summary-item">
+        <strong>01</strong>
+        <span>Verified recognition</span>
+      </div>
 
-<div class="card">
-<h3>Data Analytics</h3>
-<p>Certification description here.</p>
-</div>
+      <div class="summary-item">
+        <strong>24 Apr 2026</strong>
+        <span>Date awarded</span>
+      </div>
 
-</div>
+      <div class="summary-item">
+        <strong>Going Extra Mile</strong>
+        <span>Recognition category</span>
+      </div>
 
-</section>
+    </div>
 
-<section class="container">
+    <section id="achievement">
 
-<h2 class="section-title">💡 Skills</h2>
+      <div class="container">
 
-<div class="skills">
+        <p class="section-label reveal">
+          Signature Recognition
+        </p>
 
-<span class="skill">Financial Analysis</span>
-<span class="skill">Excel</span>
-<span class="skill">Power BI</span>
-<span class="skill">Accounting</span>
-<span class="skill">Data Analytics</span>
-<span class="skill">Reporting</span>
-<span class="skill">Leadership</span>
-<span class="skill">Problem Solving</span>
+        <h2 class="section-title reveal">
+          One achievement.
+          <br>
+          A meaningful milestone.
+        </h2>
 
-</div>
+        <div class="achievement-layout">
 
-</section>
+          <article class="achievement-story reveal">
 
-<section class="container">
+            <span class="achievement-badge">
+              Certificate of Appreciation
+            </span>
 
-<h2 class="section-title">🚀 Career Highlights</h2>
+            <h3>Going Extra Mile</h3>
 
-<div class="cards">
+            <div class="award-date">
+              Awarded 24 April 2026
+            </div>
 
-<div class="card">
-<h3>Project Success</h3>
-<p>Successfully completed high-impact business projects.</p>
-</div>
+            <div class="award-description">
+              Awarded for taking initiatives which resulted in being
+              a highly competent contributor to the organization and
+              team, with appreciation for commitment.
+            </div>
 
-<div class="card">
-<h3>Operational Excellence</h3>
-<p>Improved workflow efficiency and reduced turnaround time.</p>
-</div>
+            <p class="issuer">
+              Presented by H&amp;R Block and signed by
+              Manoj Elanjickal Baby, Director - People &amp; Culture,
+              and Hari Prasad, VP &amp; Managing Director.
+            </p>
 
-<div class="card">
-<h3>Client Impact</h3>
-<p>Delivered measurable value through analytical insights.</p>
-</div>
+            <div class="tags">
 
-</div>
+              <span class="tag">
+                Initiative
+              </span>
 
-</section>
+              <span class="tag">
+                Commitment
+              </span>
 
-<section class="container">
+              <span class="tag">
+                Team Contribution
+              </span>
 
-<h2 class="section-title">📅 Career Timeline</h2>
+            </div>
 
-<div class="timeline">
+            <div class="actions">
 
-<div class="timeline-item">
-<h3>2023</h3>
-<p>Joined as Analyst.</p>
-</div>
+              <a
+                class="button button-primary"
+                href="certificate.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                View Full Certificate
+              </a>
 
-<div class="timeline-item">
-<h3>2024</h3>
-<p>Earned major certification and recognition award.</p>
-</div>
+              <a
+                class="button button-secondary"
+                href="certificate.pdf"
+                download
+              >
+                Download PDF
+              </a>
 
-<div class="timeline-item">
-<h3>2025</h3>
-<p>Led impactful projects and achieved performance milestones.</p>
-</div>
+            </div>
 
-</div>
+          </article>
 
-</section>
+          <div class="certificate-container reveal">
 
-<section class="container">
+            <div class="verified-ribbon">
+              VERIFIED
+            </div>
 
-<h2 class="section-title">📸 Gallery</h2>
+            <object
+              data="certificate.pdf#view=FitH"
+              type="application/pdf"
+              aria-label="Certificate of Appreciation"
+            >
 
-<div class="gallery">
+              <div class="pdf-fallback">
 
-https://via.placeholder.com/500x350
+                <div>
 
-https://via.placeholder.com/500x350
+                  <h3>Certificate Preview</h3>
 
-https://via.placeholder.com/500x350
-
-https://via.placeholder.com/500x350
-
-</div>
-
-</section>
-
-<section class="container">
-
-<h2 class="section-title">📬 Connect With Me</h2>
-
-<div class="contact">
-
-https://linkedin.comLinkedIn</a>
-
-yourmail@example.comEmail</a>
-
-#Resume</a>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>
-
-© 2026 Raghavendra Portfolio
-
-</p>
-
-</footer>
-
-</body>
-</html>
+                  <p>
+                    This browser cannot show the certi
